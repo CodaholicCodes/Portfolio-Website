@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import {useScroll ,  useMotionValueEvent , AnimatePresence,motion} from "framer-motion";
-import img1 from "../assets/img1.JPG";
+import img1 from "../assets/img1new.png"
+import store from "../assets/store.png"
+import chatbot from "../assets/chatbot.PNG"
 import img2 from "../assets/img2.JPG";
 const useIsMobile=(query="(max-width : 639px)")=>{
   const [isMobile,setisMobile]=useState(window.matchMedia(query).matches);
@@ -20,22 +22,22 @@ export default function Projects(){
  const projectsArray=useMemo(()=>[
   {
     title : "Farishtaa",
-    link : "https://farishtaa.com",
-    bgColor : "#3884d3",
-    image : isMobile ? img1 : img2
+    link : "https://farishtaa.netlify.app/",
+    bgColor : "#e7000b",
+    image : isMobile ? img1 : img1
   },
    {
-    title : "Farishtaa",
-    link : "https://farishtaa.com",
-    bgColor : "#0d4d3d",
-    image : isMobile ? img1 : img2
+    title : "SinghStore",
+    link : "https://singhstorefrontend.onrender.com/",
+    bgColor : "#FFB6C1",
+    image : isMobile ? store : store
   },
   
    {
-    title : "Farishtaa",
-    link : "https://farishtaa.com",
+    title : "Gemini AI Chatbot",
+    link : "https://gemini-content-generator-virid.vercel.app/",
     bgColor : "#dc9317",
-    image : isMobile ? img1 : img2
+    image : isMobile ? chatbot : chatbot
   }
  ],[isMobile]);
   const {scrollYProgress}=useScroll({
@@ -94,15 +96,17 @@ export default function Projects(){
         <div className={`relative w-full overflow-hidden bg-black/20 shadow-2xl md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)] ${
           isMobile ? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"
         }h-[62vh] sm:h-[66vh]`}
-        style={{zIndex : 10 , transition : "box-shadow 250ms ease"}}
+        style={{zIndex : 10 , transition : "box-shadow 250ms ease",
+        }}
         >
           <img src={project.image} alt="image"  
-          className="w-full h-full object-cover drop-shadow-xl md:drop-shadow-2xl rounded-2xl"
+          className="w-full h-full object-contain object-center drop-shadow-xl md:drop-shadow-2xl rounded-2xl"
           style={{
             position : "relative",
             zIndex : 10,
             filter : "drop-shadow(0,16px 40px rgba(0,0,0,0.65)",
-            transition : "filter 200ms ease"
+            transition : "filter 200ms ease",
+           
           }}
           loading="lazy"
           />
@@ -111,7 +115,7 @@ export default function Projects(){
     ))}
   </div>
   <div className={`absolute ${isMobile ? "bottom-20 ":"bottom-10"}`}>
-    <a href={activeProject.link} className="bg-white mt-4 text-black font-semibold rounded-lg px-6 py-3 inline-block hover:bg-gray-200 transition-all">View Project</a>
+    <a href={activeProject.link} className="bg-white mt-4 text-black font-semibold rounded-lg px-6 py-3 inline-block hover:bg-gray-200 transition-all" target="_blank">View Project</a>
   </div>
   </div>
 
