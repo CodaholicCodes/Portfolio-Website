@@ -4,6 +4,8 @@ import img1 from "../assets/img1new.png"
 import store from "../assets/store.png"
 import chatbot from "../assets/chatbot.PNG"
 import img2 from "../assets/img2.JPG";
+import farishtaa from "../assets/farishtaa.PNG"
+
 const useIsMobile=(query="(max-width : 639px)")=>{
   const [isMobile,setisMobile]=useState(window.matchMedia(query).matches);
   useEffect(()=>{
@@ -24,7 +26,7 @@ export default function Projects(){
     title : "Farishtaa",
     link : "https://farishtaa.netlify.app/",
     bgColor : "#e7000b",
-    image : isMobile ? img1 : img1
+    image : isMobile ? farishtaa : farishtaa
   },
    {
     title : "SinghStore",
